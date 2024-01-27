@@ -92,12 +92,34 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<image>
+						<name>pulkitgupta38/bookmarker-api</name>
+					</image>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>3.4.0</version>
+				<configuration>
+					<from>
+						<image>eclipse-temurin:21-jdk</image>
+					</from>
+					<to>
+						<image>pulkitgupta38/bookmarker-api-jib:0.0.1</image>
+					</to>
+					<container>
+						<ports>
+							<port>8080</port>
+						</ports>
+					</container>
 				</configuration>
 			</plugin>
 		</plugins>
