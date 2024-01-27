@@ -21,6 +21,9 @@ jobs:
           distribution: 'temurin'
           cache: 'maven'
 
+      - name: Make mvnw executable
+        run: chmod +x mvnw
+
       - name: Build with Maven
         run: ./mvnw verify
 
@@ -30,4 +33,3 @@ jobs:
           ./mvnw clean package jib:dockerBuild -DskipTests
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
           docker push ${{ secrets.DOCKER_USERNAME }}/bookmarker-api
-
