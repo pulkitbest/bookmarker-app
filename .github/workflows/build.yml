@@ -35,8 +35,5 @@ jobs:
           # Securely login to Docker
           echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
-          # Tag the Docker image with a specific version (you can adjust the version as needed)
-          docker tag ${{ secrets.DOCKER_USERNAME }}/bookmarker-api:latest ${{ secrets.DOCKER_USERNAME }}/bookmarker-api:0.0.1
-
-          # Push the Docker image with the specific tag
-          docker push ${{ secrets.DOCKER_USERNAME }}/bookmarker-api:0.0.1
+          # Push the Docker image
+          docker push ${{ secrets.DOCKER_USERNAME }}/bookmarker-api-jib:0.0.1
